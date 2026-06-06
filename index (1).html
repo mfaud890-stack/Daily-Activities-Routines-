@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Module: Daily Activities & Routines — West Sulawesi Life</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sky: #1E6FA8;
+  --sky-light: #5BACD4;
+  --sky-pale: #EBF5FB;
+  --sunrise: #E8873A;
+  --sunrise-pale: #FEF3E9;
+  --grass: #2E7D52;
+  --grass-light: #52B07A;
+  --sand: #F5EFE0;
+  --night: #0D1B2A;
+  --navy: #162D42;
+  --ink: #1A2B3C;
+  --muted: #6B7F8E;
+  --border: rgba(30,111,168,0.15);
+  --white: #FFFFFF;
+  --shadow: 0 8px 40px rgba(13,27,42,0.12);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: #F7F3EC; color: var(--ink); line-height: 1.7; overflow-x: hidden; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--sand); }
+::-webkit-scrollbar-thumb { background: var(--sky); border-radius: 3px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(13,27,42,0.92); backdrop-filter: blur(16px);
+  padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 62px;
+  border-bottom: 1px solid rgba(91,172,212,0.15);
+}
+.nav-logo { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700; color: white; letter-spacing: -0.01em; }
+.nav-logo span { color: var(--sky-light); }
+.nav-links { display: flex; gap: 0.15rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; font-size: 0.73rem; font-weight: 500;
+  color: rgba(255,255,255,0.45); padding: 0.35rem 0.7rem; border-radius: 100px;
+  transition: all 0.2s; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.nav-links a:hover, .nav-links a.active { color: white; background: rgba(91,172,212,0.18); }
+.nav-tag {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--sunrise); color: white; padding: 0.28rem 0.8rem; border-radius: 100px;
+}
+
+/* ── SECTIONS ── */
+section { padding: 80px 0 60px; }
+.container { max-width: 920px; margin: 0 auto; padding: 0 2rem; }
+
+/* ── COVER ── */
+#cover {
+  min-height: 100vh; background: var(--night);
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.cover-rings {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px; height: 700px;
+}
+.cover-rings span {
+  position: absolute; border-radius: 50%;
+  border: 1px solid rgba(91,172,212,0.08);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  animation: expandRing 8s ease-out infinite;
+}
+.cover-rings span:nth-child(1) { width: 300px; height: 300px; animation-delay: 0s; }
+.cover-rings span:nth-child(2) { width: 450px; height: 450px; animation-delay: 1.5s; }
+.cover-rings span:nth-child(3) { width: 600px; height: 600px; animation-delay: 3s; }
+.cover-rings span:nth-child(4) { width: 700px; height: 700px; animation-delay: 4.5s; }
+@keyframes expandRing { 0%{opacity:0.6} 100%{opacity:0} }
+
+.cover-sunrise {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 45%;
+  background: linear-gradient(to top, rgba(232,135,58,0.12), transparent);
+}
+.cover-glow {
+  position: absolute; top: 30%; right: -5%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(30,111,168,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.cover-content { position: relative; z-index: 2; max-width: 920px; margin: 0 auto; padding: 0 2rem; }
+.cover-pill {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(91,172,212,0.12); border: 1px solid rgba(91,172,212,0.25);
+  color: var(--sky-light); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px;
+  margin-bottom: 2rem; animation: fadeUp 0.6s ease both;
+}
+.cover-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sky-light); animation: blink 2s ease infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+.cover-h1 {
+  font-family: 'Fraunces', serif; font-size: clamp(2.4rem,5.5vw,4.2rem);
+  font-weight: 900; line-height: 1.08; color: white; margin-bottom: 0.5rem;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+.cover-h1 em { font-style: italic; color: var(--sky-light); }
+.cover-h2 { font-size: clamp(1rem,2vw,1.35rem); color: rgba(255,255,255,0.5); font-weight: 300; margin-bottom: 2.5rem; animation: fadeUp 0.6s 0.2s ease both; }
+.cover-divider { width: 48px; height: 2.5px; background: linear-gradient(90deg, var(--sunrise), transparent); margin-bottom: 2.5rem; animation: fadeUp 0.6s 0.25s ease both; }
+
+.cover-stats { display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem; animation: fadeUp 0.6s 0.3s ease both; }
+.cover-stat-label { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); font-weight: 600; margin-bottom: 0.2rem; }
+.cover-stat-val { font-size: 0.88rem; color: rgba(255,255,255,0.8); font-weight: 500; }
+
+.cover-btn {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  background: var(--sky); color: white; font-weight: 700; font-size: 0.88rem;
+  padding: 0.9rem 2.2rem; border-radius: 100px; text-decoration: none;
+  box-shadow: 0 6px 24px rgba(30,111,168,0.5); transition: all 0.3s;
+  animation: fadeUp 0.6s 0.4s ease both; letter-spacing: 0.02em;
+}
+.cover-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(30,111,168,0.6); background: var(--sky-light); }
+.cover-btn-arrow { transition: transform 0.3s; }
+.cover-btn:hover .cover-btn-arrow { transform: translateX(5px); }
+.cover-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.25); font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; text-align: center; animation: bob 2.5s ease infinite; }
+.cover-scroll::after { content: '↓'; display: block; font-size: 1rem; margin-top: 0.3rem; }
+@keyframes bob { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(7px)} }
+
+/* ── EYEBROW / SECTION HEADER ── */
+.eyebrow { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--sky); display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; }
+.eyebrow::before { content: ''; width: 20px; height: 2px; background: var(--sky); }
+.sec-title { font-family: 'Fraunces', serif; font-size: clamp(1.7rem,3vw,2.3rem); font-weight: 700; line-height: 1.2; color: var(--navy); margin-bottom: 1rem; }
+.sec-lead { font-size: 1rem; color: var(--muted); line-height: 1.85; max-width: 680px; }
+
+/* ── TOC ── */
+#toc { background: white; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+.toc-card {
+  border: 1px solid var(--border); border-radius: 14px; padding: 1.3rem 1.5rem;
+  text-decoration: none; color: inherit; display: flex; align-items: flex-start; gap: 1rem;
+  background: var(--sand); transition: all 0.25s; position: relative; overflow: hidden;
+}
+.toc-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--sky); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+.toc-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: rgba(30,111,168,0.3); }
+.toc-card:hover::after { transform: scaleX(1); }
+.toc-n { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--sky); background: rgba(30,111,168,0.1); width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 500; }
+.toc-t { font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+.toc-d { font-size: 0.78rem; color: var(--muted); margin-top: 0.25rem; }
+
+/* ── OBJECTIVES ── */
+#objectives { background: var(--sand); }
+.obj-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+.obj-card { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
+.obj-card.speaking { border-top: 3px solid var(--grass); }
+.obj-card.vocab   { border-top: 3px solid var(--sunrise); }
+.obj-card.grammar { border-top: 3px solid var(--sky); }
+.obj-card.culture { border-top: 3px solid #9B59B6; }
+.obj-icon { font-size: 1.8rem; margin-bottom: 0.7rem; }
+.obj-sk { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: var(--grass); margin-bottom: 0.3rem; }
+.obj-card.vocab .obj-sk { color: var(--sunrise); }
+.obj-card.grammar .obj-sk { color: var(--sky); }
+.obj-card.culture .obj-sk { color: #9B59B6; }
+.obj-tx { font-size: 0.88rem; line-height: 1.65; }
+
+/* ── INFO BOX ── */
+.ibox { background: var(--sky-pale); border: 1px solid rgba(30,111,168,0.2); border-left: 4px solid var(--sky); border-radius: 10px; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
+.ibox-lbl { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: var(--sky); margin-bottom: 0.5rem; }
+.ibox p { font-size: 0.88rem; color: var(--ink); line-height: 1.7; }
+
+/* ── MATERIAL ── */
+#material { background: white; }
+.mat-hero { background: var(--navy); border-radius: 18px; padding: 2.2rem 2.8rem; margin-bottom: 2.5rem; position: relative; overflow: hidden; }
+.mat-hero::before { content: ''; position: absolute; top: -30%; right: -5%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(91,172,212,0.12) 0%, transparent 70%); border-radius: 50%; }
+.mat-hero h3 { font-family: 'Fraunces', serif; color: var(--sky-light); font-size: 1.3rem; margin-bottom: 0.8rem; position: relative; }
+.mat-hero p { color: rgba(255,255,255,0.7); font-size: 0.93rem; line-height: 1.8; position: relative; }
+
+.time-strips { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 1rem; margin: 2rem 0; }
+.time-strip { border-radius: 14px; padding: 1.3rem 1.4rem; position: relative; overflow: hidden; }
+.time-strip.morning { background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border: 1px solid rgba(232,135,58,0.25); }
+.time-strip.afternoon { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); border: 1px solid rgba(30,111,168,0.2); }
+.time-strip.evening { background: linear-gradient(135deg, #EDE7F6, #D1C4E9); border: 1px solid rgba(155,89,182,0.2); }
+.time-strip.night { background: linear-gradient(135deg, #E8EAF6, #C5CAE9); border: 1px solid rgba(63,81,181,0.2); }
+.time-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.time-label { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: var(--muted); margin-bottom: 0.25rem; }
+.time-title { font-weight: 700; font-size: 0.92rem; color: var(--navy); margin-bottom: 0.4rem; }
+.time-acts { font-size: 0.78rem; color: var(--muted); line-height: 1.7; }
+
+/* Reading text */
+.read-box { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin: 2rem 0; }
+.read-head { background: var(--navy); padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: flex-start; }
+.read-head-info h3 { font-family: 'Fraunces', serif; color: white; font-size: 1.15rem; }
+.read-head-info p { color: rgba(255,255,255,0.45); font-size: 0.78rem; margin-top: 0.25rem; }
+.read-badge { background: rgba(91,172,212,0.2); border: 1px solid rgba(91,172,212,0.35); color: var(--sky-light); font-size: 0.65rem; font-weight: 700; padding: 0.3rem 0.75rem; border-radius: 6px; letter-spacing: 0.08em; text-transform: uppercase; flex-shrink: 0; }
+.read-body { background: var(--sand); padding: 2rem 2.2rem; }
+.read-section { margin-bottom: 1.8rem; }
+.read-lbl { font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--sky); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1rem; }
+.read-body p { font-size: 0.9rem; line-height: 1.85; color: var(--ink); }
+.hw { background: rgba(30,111,168,0.1); color: var(--sky); font-weight: 600; padding: 0 0.2rem; border-radius: 3px; cursor: pointer; border-bottom: 1px dashed var(--sky); }
+.act-list { list-style: none; }
+.act-item { display: flex; gap: 1rem; margin-bottom: 1rem; padding: 0.8rem 1rem; border-radius: 10px; background: white; border: 1px solid var(--border); transition: all 0.2s; }
+.act-item:hover { border-color: var(--sky); }
+.act-time { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--sky); background: var(--sky-pale); padding: 0.2rem 0.5rem; border-radius: 5px; font-weight: 500; white-space: nowrap; align-self: flex-start; margin-top: 2px; }
+.act-text { font-size: 0.88rem; line-height: 1.7; color: var(--ink); }
+.act-text strong { color: var(--navy); }
+
+/* ── VOCABULARY ── */
+#vocabulary { background: var(--sand); }
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.vc { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 1.3rem 1.5rem; position: relative; overflow: hidden; transition: all 0.25s; }
+.vc::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--sky); transform: scaleY(0); transform-origin: bottom; transition: transform 0.25s; }
+.vc:hover::before { transform: scaleY(1); }
+.vc:hover { border-color: rgba(30,111,168,0.35); box-shadow: 0 4px 20px rgba(30,111,168,0.08); }
+.vc-word { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); }
+.vc-phon { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--muted); margin: 0.3rem 0 0.5rem; }
+.vc-pos { display: inline-block; font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 4px; margin-bottom: 0.6rem; }
+.pos-v { background: rgba(46,125,82,0.1); color: var(--grass); }
+.pos-n { background: rgba(30,111,168,0.1); color: var(--sky); }
+.pos-adj { background: rgba(232,135,58,0.1); color: var(--sunrise); }
+.pos-adv { background: rgba(155,89,182,0.1); color: #9B59B6; }
+.vc-id { font-size: 0.82rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+.vc-ex { font-size: 0.8rem; color: var(--muted); font-style: italic; line-height: 1.65; }
+
+/* ── GRAMMAR ── */
+#grammar { background: white; }
+.gformula { background: var(--navy); border-radius: 14px; padding: 1.6rem 2rem; margin: 1.5rem 0; }
+.gformula-lbl { font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sky-light); font-weight: 700; margin-bottom: 0.8rem; }
+.gformula code { display: block; font-family: 'JetBrains Mono', monospace; color: white; font-size: 0.95rem; line-height: 2.1; }
+.gformula code span { color: var(--sky-light); }
+.gformula .eg { font-size: 0.8rem; color: rgba(255,255,255,0.5); font-style: italic; margin-top: 0.3rem; display: block; font-family: 'Plus Jakarta Sans', sans-serif; }
+table.gt { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin: 1.5rem 0; font-size: 0.88rem; }
+table.gt th { background: var(--navy); color: white; padding: 0.8rem 1rem; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; text-align: left; }
+table.gt td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.65; }
+table.gt tr:last-child td { border-bottom: none; }
+table.gt tr:nth-child(even) td { background: var(--sand); }
+table.gt td code { font-family: 'JetBrains Mono', monospace; background: var(--sky-pale); color: var(--sky); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.8rem; }
+.freq-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.75rem; margin: 1.5rem 0; }
+.freq-card { border: 1px solid var(--border); border-radius: 10px; padding: 1rem; background: var(--sand); text-align: center; }
+.freq-word { font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; font-weight: 600; color: var(--sky); margin-bottom: 0.3rem; }
+.freq-pct { font-size: 0.72rem; color: var(--muted); }
+.freq-bar { height: 4px; background: var(--border); border-radius: 2px; margin-top: 0.5rem; overflow: hidden; }
+.freq-fill { height: 100%; background: var(--sky); border-radius: 2px; }
+
+/* ── EXERCISES ── */
+#exercises { background: var(--sand); }
+.ex-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.ex-tab { padding: 0.5rem 1.2rem; border-radius: 100px; border: 1px solid var(--border); background: white; cursor: pointer; font-size: 0.8rem; font-weight: 600; color: var(--muted); transition: all 0.2s; font-family: 'Plus Jakarta Sans', sans-serif; }
+.ex-tab.active, .ex-tab:hover { background: var(--navy); color: white; border-color: var(--navy); }
+.ex-panel { display: none; }
+.ex-panel.active { display: block; }
+.qcard { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; margin-bottom: 1rem; }
+.qn { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--sky); margin-bottom: 0.6rem; }
+.qt { font-size: 0.92rem; line-height: 1.75; color: var(--ink); margin-bottom: 1rem; }
+.qopts { display: flex; flex-direction: column; gap: 0.5rem; }
+.qopt { display: flex; align-items: center; gap: 0.8rem; padding: 0.65rem 1rem; border-radius: 9px; border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; font-size: 0.87rem; color: var(--ink); background: transparent; }
+.qopt:hover { border-color: var(--sky); background: var(--sky-pale); }
+.qopt.correct { background: rgba(46,125,82,0.08); border-color: var(--grass); color: var(--grass); font-weight: 600; }
+.qopt.wrong { background: rgba(231,76,60,0.07); border-color: #E74C3C; color: #E74C3C; }
+.qltr { width: 22px; height: 22px; border-radius: 50%; background: var(--sand); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0; font-family: 'JetBrains Mono', monospace; }
+.check-btn { background: var(--sky); color: white; border: none; padding: 0.75rem 1.75rem; border-radius: 100px; font-size: 0.87rem; font-weight: 700; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; margin-top: 1rem; transition: all 0.2s; }
+.check-btn:hover { background: var(--navy); transform: translateY(-1px); }
+.score-box { background: var(--navy); border-radius: 14px; padding: 1.5rem 2rem; display: none; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+.score-box.show { display: flex; }
+.score-big { font-family: 'Fraunces', serif; font-size: 2.2rem; color: var(--sky-light); display: block; }
+.score-lbl { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+.score-msg { font-size: 0.87rem; color: rgba(255,255,255,0.75); max-width: 300px; line-height: 1.6; }
+
+/* Fill blank */
+.blank-in { background: transparent; border: none; border-bottom: 2px solid var(--sky); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9rem; color: var(--ink); padding: 0.1rem 0.4rem; min-width: 120px; outline: none; transition: border-color 0.2s; }
+.blank-in:focus { border-bottom-color: var(--navy); }
+.blank-in.correct { border-bottom-color: var(--grass); background: rgba(46,125,82,0.05); }
+.blank-in.wrong { border-bottom-color: #E74C3C; background: rgba(231,76,60,0.05); }
+.wordbank { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 1rem 1.2rem; background: white; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 1.5rem; }
+.wtag { padding: 0.3rem 0.75rem; background: var(--sand); border: 1px solid var(--border); border-radius: 100px; font-size: 0.8rem; font-weight: 600; color: var(--navy); font-family: 'JetBrains Mono', monospace; }
+
+/* Speaking */
+.speak-box { background: linear-gradient(135deg, var(--navy) 0%, #1A4A6B 100%); border-radius: 18px; padding: 2.2rem; }
+.speak-box h3 { font-family: 'Fraunces', serif; color: white; font-size: 1.2rem; margin-bottom: 0.75rem; }
+.speak-box p { color: rgba(255,255,255,0.65); font-size: 0.88rem; line-height: 1.75; margin-bottom: 1.5rem; }
+.speak-steps { list-style: none; margin-bottom: 1.5rem; }
+.sstep { display: flex; gap: 0.8rem; margin-bottom: 0.75rem; color: rgba(255,255,255,0.82); font-size: 0.87rem; }
+.sstep-n { width: 22px; height: 22px; background: rgba(91,172,212,0.25); border: 1px solid var(--sky-light); color: var(--sky-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.68rem; font-weight: 700; flex-shrink: 0; }
+.topics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.topic-c { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 1rem 1.2rem; }
+.topic-t { color: var(--sky-light); font-weight: 700; font-size: 0.87rem; margin-bottom: 0.3rem; }
+.topic-d { color: rgba(255,255,255,0.58); font-size: 0.8rem; line-height: 1.6; }
+.rubric-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.75rem; margin-top: 1.25rem; }
+.rub-c { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 0.75rem; text-align: center; }
+.rub-s { font-family: 'Fraunces', serif; color: var(--sky-light); font-size: 1.4rem; font-weight: 900; }
+.rub-l { color: rgba(255,255,255,0.55); font-size: 0.68rem; margin-top: 0.2rem; line-height: 1.4; }
+
+/* ── SUMMARY ── */
+#summary { background: white; }
+.sum-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.sum-card { border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; background: var(--sand); }
+.sum-card h4 { font-weight: 700; font-size: 0.92rem; color: var(--navy); margin-bottom: 0.8rem; }
+.sum-card ul { list-style: none; }
+.sum-card li { font-size: 0.83rem; color: var(--ink); padding-left: 1rem; position: relative; margin-bottom: 0.5rem; line-height: 1.55; }
+.sum-card li::before { content: '▸'; position: absolute; left: 0; color: var(--sky); font-size: 0.68rem; top: 1px; }
+
+/* ── REFERENCES ── */
+#references { background: var(--sand); min-height: auto; padding: 60px 0; }
+.ref-list { list-style: none; margin-top: 1.5rem; }
+.ref-item { font-size: 0.85rem; color: var(--ink); line-height: 1.85; padding: 0.75rem 0 0.75rem 2rem; text-indent: -2rem; border-bottom: 1px solid var(--border); }
+.ref-item:last-child { border-bottom: none; }
+
+/* ── FOOTER ── */
+footer { background: var(--night); padding: 2.5rem 2rem; text-align: center; color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+footer strong { color: var(--sky-light); }
+
+/* MODAL */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal-box { background: white; border-radius: 18px; padding: 2rem; max-width: 380px; width: 90%; box-shadow: 0 24px 64px rgba(0,0,0,0.25); transform: scale(0.9); transition: transform 0.25s; }
+.modal-overlay.open .modal-box { transform: scale(1); }
+.modal-word { font-family: 'Fraunces', serif; font-size: 1.8rem; color: var(--navy); font-weight: 700; }
+.modal-close { float: right; background: none; border: none; cursor: pointer; font-size: 1.1rem; color: var(--muted); }
+.modal-def { font-size: 0.9rem; color: var(--muted); margin-top: 0.75rem; line-height: 1.75; }
+
+@media(max-width:600px) { nav .nav-links { display: none; } .read-head { flex-direction: column; gap: 0.75rem; } .topics-grid { grid-template-columns: 1fr; } .rubric-row { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Daily <span>Life</span> SulBar</div>
+  <ul class="nav-links">
+    <li><a href="#cover">Home</a></li>
+    <li><a href="#toc">Contents</a></li>
+    <li><a href="#objectives">Objectives</a></li>
+    <li><a href="#material">Material</a></li>
+    <li><a href="#vocabulary">Vocabulary</a></li>
+    <li><a href="#grammar">Grammar</a></li>
+    <li><a href="#exercises">Exercises</a></li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+  <span class="nav-tag">SMA Kelas 10–12</span>
+</nav>
+
+<!-- ── COVER ── -->
+<section id="cover">
+  <div class="cover-rings"><span></span><span></span><span></span><span></span></div>
+  <div class="cover-sunrise"></div>
+  <div class="cover-glow"></div>
+  <div class="cover-content">
+    <div class="cover-pill"><span class="cover-pill-dot"></span>E-Module · Bahasa Inggris · SMA Kelas 10–12</div>
+    <div class="cover-h1">A Day in <em>West Sulawesi</em></div>
+    <div class="cover-h2">Daily Activities &amp; Routines — Learning Through Local Life</div>
+    <div class="cover-divider"></div>
+    <div class="cover-stats">
+      <div><div class="cover-stat-label">Tipe Teks</div><div class="cover-stat-val">Descriptive / Narrative</div></div>
+      <div><div class="cover-stat-label">Fokus Skill</div><div class="cover-stat-val">Speaking · Vocabulary · Grammar</div></div>
+      <div><div class="cover-stat-label">Tema</div><div class="cover-stat-val">Local Culture &amp; Daily Life</div></div>
+      <div><div class="cover-stat-label">Jenjang</div><div class="cover-stat-val">SMA Grade 10–12</div></div>
+    </div>
+    <a href="#toc" class="cover-btn">Mulai Belajar <span class="cover-btn-arrow">→</span></a>
+  </div>
+  <div class="cover-scroll">Scroll</div>
+</section>
+
+<!-- ── TABLE OF CONTENTS ── -->
+<section id="toc">
+  <div class="container">
+    <div class="eyebrow">Navigation</div>
+    <h2 class="sec-title">Daftar Isi</h2>
+    <p class="sec-lead">E-module ini memuat enam bagian pembelajaran yang membawa kamu dari pemahaman konsep hingga praktik berbicara tentang kehidupan sehari-hari masyarakat Sulawesi Barat.</p>
+    <div class="toc-grid">
+      <a href="#objectives" class="toc-card"><div class="toc-n">01</div><div><div class="toc-t">Learning Objectives</div><div class="toc-d">Tujuan pembelajaran: Speaking, Vocabulary, Grammar, Culture</div></div></a>
+      <a href="#material" class="toc-card"><div class="toc-n">02</div><div><div class="toc-t">Material &amp; Reading Text</div><div class="toc-d">Deskripsi kegiatan harian + 2 reading texts autentik</div></div></a>
+      <a href="#vocabulary" class="toc-card"><div class="toc-n">03</div><div><div class="toc-t">Key Vocabulary</div><div class="toc-d">12 kosakata kegiatan harian dengan makna &amp; contoh</div></div></a>
+      <a href="#grammar" class="toc-card"><div class="toc-n">04</div><div><div class="toc-t">Grammar Focus</div><div class="toc-d">Simple Present Tense &amp; Adverbs of Frequency</div></div></a>
+      <a href="#exercises" class="toc-card"><div class="toc-n">05</div><div><div class="toc-t">Exercises</div><div class="toc-d">Multiple choice, gap-fill &amp; speaking task</div></div></a>
+      <a href="#summary" class="toc-card"><div class="toc-n">06</div><div><div class="toc-t">Summary &amp; References</div><div class="toc-d">Rangkuman materi dan daftar pustaka</div></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ── OBJECTIVES ── -->
+<section id="objectives">
+  <div class="container">
+    <div class="eyebrow">01 — Tujuan Pembelajaran</div>
+    <h2 class="sec-title">Learning Objectives</h2>
+    <p class="sec-lead">Setelah menyelesaikan e-module ini, kamu akan mampu melakukan hal-hal berikut dalam bahasa Inggris.</p>
+    <div class="obj-row">
+      <div class="obj-card speaking">
+        <div class="obj-icon">🎙️</div>
+        <div class="obj-sk">Speaking</div>
+        <div class="obj-tx">Mendeskripsikan kegiatan harian secara lisan dengan lancar menggunakan Simple Present Tense yang benar.</div>
+      </div>
+      <div class="obj-card vocab">
+        <div class="obj-icon">📖</div>
+        <div class="obj-sk">Vocabulary</div>
+        <div class="obj-tx">Menggunakan minimal 12 kosakata kegiatan harian dalam konteks kehidupan masyarakat Sulawesi Barat.</div>
+      </div>
+      <div class="obj-card grammar">
+        <div class="obj-icon">📐</div>
+        <div class="obj-sk">Grammar</div>
+        <div class="obj-tx">Membentuk kalimat Simple Present Tense yang benar dan menggunakan adverbs of frequency secara tepat.</div>
+      </div>
+      <div class="obj-card culture">
+        <div class="obj-icon">🏡</div>
+        <div class="obj-sk">Cultural Literacy</div>
+        <div class="obj-tx">Membandingkan kegiatan harian masyarakat Sulawesi Barat dengan kehidupan sehari-hari siswa sendiri.</div>
+      </div>
+    </div>
+    <div class="ibox">
+      <div class="ibox-lbl">📺 Catatan Media Pembelajaran (Teaching Media)</div>
+      <p>E-module ini adalah <strong>media pembelajaran digital interaktif</strong> berbasis FlipHTML5 yang dapat diakses online maupun offline. Menggabungkan teks, visual berwarna, kosakata interaktif, latihan soal, dan tugas berbicara dalam satu platform — tanpa perlu instalasi aplikasi tambahan. Desain berbasis warna dan tipografi bertujuan meningkatkan keterlibatan siswa generasi digital (Gen Z &amp; Alpha).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── MATERIAL ── -->
+<section id="material">
+  <div class="container">
+    <div class="eyebrow">02 — Materi</div>
+    <h2 class="sec-title">Daily Activities &amp; Routines</h2>
+
+    <div class="mat-hero">
+      <h3>What Are Daily Activities?</h3>
+      <p><strong>Daily activities</strong> are the things we do every day as part of our routine — from waking up in the morning to going to sleep at night. In English, we talk about daily routines using the <strong>Simple Present Tense</strong> combined with time expressions and adverbs of frequency. Understanding how people in <strong>West Sulawesi</strong> organize their day gives us a rich, authentic context to practise this language.</p>
+    </div>
+
+    <h3 style="font-family:'Fraunces',serif;font-size:1.15rem;margin:0 0 1rem;color:var(--navy)">Daily Routine Time Slots</h3>
+    <div class="time-strips">
+      <div class="time-strip morning">
+        <div class="time-icon">🌅</div>
+        <div class="time-label">Pagi Hari</div>
+        <div class="time-title">Morning (5:00–10:00)</div>
+        <div class="time-acts">Wake up · Pray · Cook breakfast · Go to school/market</div>
+      </div>
+      <div class="time-strip afternoon">
+        <div class="time-icon">☀️</div>
+        <div class="time-label">Siang Hari</div>
+        <div class="time-title">Afternoon (10:00–15:00)</div>
+        <div class="time-acts">Study · Lunch · Rest · Help at home</div>
+      </div>
+      <div class="time-strip evening">
+        <div class="time-icon">🌇</div>
+        <div class="time-label">Sore Hari</div>
+        <div class="time-title">Evening (15:00–18:00)</div>
+        <div class="time-acts">Exercise · Do homework · Play · Pray Asr &amp; Maghrib</div>
+      </div>
+      <div class="time-strip night">
+        <div class="time-icon">🌙</div>
+        <div class="time-label">Malam Hari</div>
+        <div class="time-title">Night (18:00–22:00)</div>
+        <div class="time-acts">Dinner · Study · Watch TV · Sleep</div>
+      </div>
+    </div>
+
+    <!-- TEXT 1 -->
+    <div class="read-box">
+      <div class="read-head">
+        <div class="read-head-info">
+          <h3>A Fisherman's Day in Majene</h3>
+          <p>West Sulawesi Coast — Mandar Fishing Community</p>
+        </div>
+        <span class="read-badge">Reading Text 1</span>
+      </div>
+      <div class="read-body">
+        <div class="read-section">
+          <div class="read-lbl">Introduction</div>
+          <p>Meet <span class="hw" onclick="showModal('Pak Ruslan','Pak Ruslan adalah tokoh fiktif yang mewakili kehidupan sehari-hari nelayan Mandar di Majene, Sulawesi Barat. Nelayan Mandar terkenal dengan tradisi bahari yang kuat.')">Pak Ruslan</span>, a fisherman from <span class="hw" onclick="showModal('Majene','Majene adalah salah satu kabupaten di Sulawesi Barat, terletak di pesisir barat dan terkenal sebagai kota nelayan.')">Majene</span>, West Sulawesi. Like many in the <span class="hw" onclick="showModal('Mandar community','Suku Mandar adalah kelompok etnis utama di Sulawesi Barat, terkenal dengan tradisi bahari, pembuatan perahu, dan keahlian menangkap ikan.')">Mandar community</span>, his daily routine is <span class="hw" onclick="showModal('shaped by the sea','Artinya kehidupan dan jadwal Pak Ruslan sangat dipengaruhi oleh kondisi laut — waktu pasang surut, cuaca, dan musim ikan.')">shaped by the sea</span>. His schedule is very different from a city dweller's, but it is full of purpose, community, and tradition.</p>
+        </div>
+        <div class="read-section">
+          <div class="read-lbl">His Daily Schedule</div>
+          <ul class="act-list">
+            <li class="act-item">
+              <span class="act-time">04:00</span>
+              <span class="act-text">Pak Ruslan <strong>wakes up</strong> before sunrise. He <span class="hw" onclick="showModal('performs','Perform = melakukan / melaksanakan. Digunakan untuk kegiatan yang formal atau rutin seperti ibadah, pertunjukan, atau tugas.')">performs</span> Subuh prayer with his family, then <strong>prepares</strong> his fishing equipment on the <span class="hw" onclick="showModal('perahu sandeq','Perahu sandeq adalah perahu layar tradisional milik suku Mandar — salah satu perahu paling cepat di dunia yang dibuat dari kayu dan bambu.')">perahu sandeq</span>.</span>
+            </li>
+            <li class="act-item">
+              <span class="act-time">05:00</span>
+              <span class="act-text">He <strong>sails out</strong> to sea with other fishermen. They <strong>cast</strong> their nets in <span class="hw" onclick="showModal('designated fishing spots','Tempat-tempat tertentu di laut yang sudah dikenal turun-temurun sebagai lokasi ikan berkumpul.')">designated fishing spots</span> passed down through generations.</span>
+            </li>
+            <li class="act-item">
+              <span class="act-time">09:00</span>
+              <span class="act-text">He <strong>returns</strong> to shore with the day's catch. His wife <strong>sorts</strong> and <strong>sells</strong> the fish at the local market (<em>pasar ikan</em>). This is their main <span class="hw" onclick="showModal('livelihood','Livelihood = mata pencaharian / sumber kehidupan. Cara seseorang mencari nafkah untuk memenuhi kebutuhan hidupnya.')">livelihood</span>.</span>
+            </li>
+            <li class="act-item">
+              <span class="act-time">12:00</span>
+              <span class="act-text">The family <strong>gathers</strong> for lunch. They <strong>eat</strong> <span class="hw" onclick="showModal('pallu butung','Pallu butung adalah makanan khas Sulawesi Barat berupa pisang yang dimasak dengan santan dan gula — biasanya dimakan sebagai dessert atau camilan.')">pallu butung</span> — a traditional local dish — prepared fresh by his wife.</span>
+            </li>
+            <li class="act-item">
+              <span class="act-time">14:00</span>
+              <span class="act-text">Pak Ruslan <strong>repairs</strong> his fishing nets under the coconut trees. He <strong>teaches</strong> his son how to weave new nets — <span class="hw" onclick="showModal('passing down skills','Mewariskan keahlian dari satu generasi ke generasi berikutnya — tradisi penting dalam komunitas nelayan Mandar.')">passing down</span> a skill from his own father.</span>
+            </li>
+            <li class="act-item">
+              <span class="act-time">18:00</span>
+              <span class="act-text">After Maghrib prayer, the family <strong>sits together</strong> on the <em>teras</em> (porch). They <strong>share stories</strong> and <strong>listen</strong> to <span class="hw" onclick="showModal('kalinda\'da\'','Kalinda\'da\' adalah puisi lisan tradisional Mandar — biasanya diucapkan atau dinyanyikan, berisi pesan moral dan kebijaksanaan hidup.')">kalinda'da'</span> poetry from the elders.</span>
+            </li>
+            <li class="act-item">
+              <span class="act-time">21:00</span>
+              <span class="act-text">The family <strong>goes to bed</strong> early to prepare for another <span class="hw" onclick="showModal('predawn','Predawn = sebelum fajar / dini hari. Waktu sebelum matahari terbit.')">predawn</span> start the next morning. <em>"The sea waits for no one,"</em> Pak Ruslan always says.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEXT 2 -->
+    <div class="read-box" style="margin-top:1.5rem">
+      <div class="read-head">
+        <div class="read-head-info">
+          <h3>A Student's Daily Life in Mamuju</h3>
+          <p>Mamuju City — Capital of West Sulawesi Province</p>
+        </div>
+        <span class="read-badge">Reading Text 2</span>
+      </div>
+      <div class="read-body">
+        <div class="read-section">
+          <div class="read-lbl">Introduction</div>
+          <p>Sari is a 16-year-old student at SMA Negeri 1 Mamuju, the <span class="hw" onclick="showModal('provincial capital','Provincial capital = ibu kota provinsi. Mamuju adalah ibu kota Provinsi Sulawesi Barat.')">provincial capital</span> of West Sulawesi. Her daily routine <span class="hw" onclick="showModal('blends','Blend = memadukan / menggabungkan. Kehidupan Sari memadukan tradisi lokal dengan kehidupan modern seorang pelajar.')">blends</span> modern student life with the strong cultural values of her Mandar family.</p>
+        </div>
+        <div class="read-section">
+          <div class="read-lbl">Sari's Daily Schedule</div>
+          <ul class="act-list">
+            <li class="act-item"><span class="act-time">05:00</span><span class="act-text">Sari <strong>wakes up</strong>, <strong>prays</strong> Subuh, and <strong>helps</strong> her mother <strong>prepare</strong> breakfast. She <strong>usually eats</strong> <em>nasi kuning</em> or <em>roti bakar</em> before school.</span></li>
+            <li class="act-item"><span class="act-time">06:30</span><span class="act-text">She <strong>gets dressed</strong> in her school uniform and <strong>walks</strong> to school with her neighbour. She <strong>always arrives</strong> before the bell <strong>rings</strong> at 7:00.</span></li>
+            <li class="act-item"><span class="act-time">07:00</span><span class="act-text">School <strong>starts</strong>. Sari <strong>pays attention</strong> in class and <strong>takes notes</strong> carefully. She <strong>particularly enjoys</strong> her English and Biology lessons.</span></li>
+            <li class="act-item"><span class="act-time">12:00</span><span class="act-text">During the lunch break, Sari <strong>eats</strong> at the school canteen with her friends. They sometimes <strong>discuss</strong> their homework or <strong>plan</strong> upcoming school events.</span></li>
+            <li class="act-item"><span class="act-time">14:00</span><span class="act-text">School <strong>ends</strong>. Sari <strong>goes home</strong>, <strong>changes</strong> her clothes, and <strong>takes a short nap</strong> before the afternoon prayer.</span></li>
+            <li class="act-item"><span class="act-time">16:00</span><span class="act-text">She <strong>does her homework</strong> and sometimes <strong>joins</strong> an online study group with friends. She <strong>also practises</strong> speaking English by watching YouTube videos.</span></li>
+            <li class="act-item"><span class="act-time">19:30</span><span class="act-text">After dinner, the family <strong>watches</strong> local television together. Sari's grandmother <strong>often tells</strong> stories about Mandar traditions before bedtime.</span></li>
+          </ul>
+        </div>
+        <div class="ibox" style="margin-top:1rem">
+          <div class="ibox-lbl">💭 Discussion Question</div>
+          <p>Compare Pak Ruslan's schedule with Sari's. <em>What are the similarities and differences? How does the sea influence daily life in West Sulawesi?</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VOCABULARY ── -->
+<section id="vocabulary">
+  <div class="container">
+    <div class="eyebrow">03 — Kosakata</div>
+    <h2 class="sec-title">Key Vocabulary</h2>
+    <p class="sec-lead">Dua belas kosakata utama untuk mendeskripsikan kegiatan harian. Pelajari makna, pengucapan, dan contoh kalimatnya.</p>
+    <div class="vocab-grid">
+      <div class="vc">
+        <div class="vc-word">routine</div>
+        <div class="vc-phon">/ruːˈtiːn/</div>
+        <span class="vc-pos pos-n">noun</span>
+        <div class="vc-id">🇮🇩 Rutinitas / kegiatan rutin</div>
+        <div class="vc-ex">"Sari has a very organised morning <strong>routine</strong> before school."</div>
+      </div>
+      <div class="vc">
+        <div class="vc-word">wake up</div>
+        <div class="vc-phon">/weɪk ʌp/</div>
+        <span class="vc-pos pos-v">verb phrase</span>
+        <div class="vc-id">🇮🇩 Bangun tidur</div>
+        <div class="vc-ex">"Pak Ruslan <strong>wakes up</strong> at 4 AM every day to go fishing."</div>
+      </div>
+      <div class="vc">
+        <div class="vc-word">prepare</div>
+        <div class="vc-phon">/prɪˈpeər/</div>
+        <span class="vc-pos pos-v">verb</span>
+        <div class="vc-id">🇮🇩 Mempersiapkan / menyiapkan</div>
+        <div class="vc-ex">"She <strong>prepares</strong> breakfast for her family every morning."</div>
+      </div>
+      <div class="vc">
+        <div class="vc-word">perform</div>
+        <div class="vc-phon">/pəˈfɔːm/</div>
+        <span class="vc-pos pos-v">verb</span>
+        <div class="vc-id">🇮🇩 Melaksanakan / menunaikan</div>
+        <div class="vc-ex">"He <strong>performs</strong> his prayers five times a day without fail."</div>
+      </div>
+      <div class="vc">
+        <div class="vc-word">livelihood</div>
+        <div class="vc-phon">/ˈlaɪv.lɪ.hʊd/</div>
+        <span class="vc-pos pos-n">noun</span>
+        <div class="vc-id">🇮🇩 Mata pencaharian / sumber nafkah</div>
+        <div class="vc-ex">"Fishing is the main <strong>livelihood</strong> of Mandar coastal families."</div>
+      </div>
+      <div class="vc">
+        <div class="vc-word">gather</div>
+        <div class="vc-phon">/ˈɡæð.ər/</div>
+        <span class="vc-pos pos-v">verb</span>
+        <div class="vc-id">🇮🇩 Berkumpul / mengumpulkan</div>
+        <div class="vc-ex">"The family <strong>gathers</strong> for dinner every evening after Maghrib."</div>
+      </div>
+      <div class="vc">
+        <div class="vc-word">commute</div>
+        <div class="vc-phon">/kəˈmjuːt/</div>
+        <span class="vc-pos pos-v">verb</span>
+        <div class="vc-id">🇮🇩 Bepergian (ke sekolah/kantor) setiap hari</div>
+        <div class="vc-ex">"Sari <strong>commutes</strong> to school on foot every morning."</div>
+      </div>
+      <div class="vc">
+        <div class="vc-word">concentrate</div>
+        <div class="vc-phon">/ˈkɒn.sən.treɪt/</div>
+        <span class="vc-pos pos-v">verb</span>
+        <div class="vc-id">🇮🇩 Berkonsentrasi / memusatkan perhatian</div>
+        <div class="vc-ex">"She always <strong>concentrates</strong> during her English lesson."</div>
+      </div>
+      <div class="vc">
+        <div class="vc-word">productive</div>
+        <div class="vc-phon">/prəˈdʌk.tɪv/</div>
+        <span class="vc-pos pos-adj">adjective</span>
+        <div class="vc-id">🇮🇩 Produktif / menghasilkan</div>
+        <div class="vc-ex">"Pak Ruslan has a very <strong>productive</strong> morning routine at sea."</div>
+      </div>
+      <div class="vc">
+        <div class="vc-word">regularly</div>
+        <div class="vc-phon">/ˈreɡ.jʊ.lə.li/</div>
+        <span class="vc-pos pos-adv">adverb</span>
+        <div class="vc-id">🇮🇩 Secara teratur / rutin</div>
+        <div class="vc-ex">"He <strong>regularly</strong> repairs his fishing nets in the afternoon."</div>
+      </div>
+      <div class="vc">
+        <div class="vc-word">blend</div>
+        <div class="vc-phon">/blend/</div>
+        <span class="vc-pos pos-v">verb</span>
+        <div class="vc-id">🇮🇩 Memadukan / menggabungkan</div>
+        <div class="vc-ex">"Sari's lifestyle <strong>blends</strong> modern student life with Mandar tradition."</div>
+      </div>
+      <div class="vc">
+        <div class="vc-word">tradition</div>
+        <div class="vc-phon">/trəˈdɪʃ.ən/</div>
+        <span class="vc-pos pos-n">noun</span>
+        <div class="vc-id">🇮🇩 Tradisi / adat kebiasaan</div>
+        <div class="vc-ex">"Telling stories before bedtime is a beautiful family <strong>tradition</strong>."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GRAMMAR ── -->
+<section id="grammar">
+  <div class="container">
+    <div class="eyebrow">04 — Grammar Focus</div>
+    <h2 class="sec-title">Simple Present Tense &amp; Adverbs of Frequency</h2>
+    <p class="sec-lead">Dua fitur kebahasaan utama dalam mendeskripsikan kegiatan harian: <strong>Simple Present Tense</strong> untuk menyatakan rutinitas, dan <strong>adverbs of frequency</strong> untuk menunjukkan seberapa sering.</p>
+
+    <h3 style="font-family:'Fraunces',serif;font-size:1.1rem;margin:1.5rem 0 0.75rem;color:var(--navy)">A. Simple Present Tense</h3>
+    <p style="font-size:0.9rem;color:var(--muted);margin-bottom:1rem">Digunakan untuk menyatakan fakta, kebiasaan, dan rutinitas yang berlangsung secara reguler.</p>
+
+    <div class="gformula">
+      <div class="gformula-lbl">Formula</div>
+      <code><span>Subject (I/You/We/They)</span> + Verb (base form)</code>
+      <code><span>Subject (He/She/It)</span> + Verb + <span>-s / -es</span></code>
+      <span class="eg">✓ "I wake up at 5 AM every day."</span>
+      <span class="eg">✓ "Pak Ruslan sails out to sea before sunrise."</span>
+      <span class="eg">✗ WRONG: "Sari wake up at 5 AM." → CORRECT: "Sari wakes up at 5 AM."</span>
+    </div>
+
+    <table class="gt">
+      <thead><tr><th>Subject</th><th>Verb Form</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>I / You / We / They</td><td>Base form</td><td><code>go</code> → "They go to school at 7."</td></tr>
+        <tr><td>He / She / It</td><td>+ s</td><td><code>work</code> → "She works at the market."</td></tr>
+        <tr><td>He / She / It</td><td>+ es (after s,sh,ch,x,o)</td><td><code>watch</code> → "He watches TV at night."</td></tr>
+        <tr><td>He / She / It</td><td>y → ies</td><td><code>study</code> → "Sari studies every evening."</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:'Fraunces',serif;font-size:1.1rem;margin:2rem 0 0.75rem;color:var(--navy)">B. Adverbs of Frequency</h3>
+    <p style="font-size:0.9rem;color:var(--muted);margin-bottom:1rem">Kata keterangan yang menunjukkan <em>seberapa sering</em> suatu kegiatan dilakukan. Posisinya biasanya <strong>sebelum verb utama</strong> (kecuali setelah "be").</p>
+
+    <div class="freq-grid">
+      <div class="freq-card"><div class="freq-word">always</div><div class="freq-pct">100% — Selalu</div><div class="freq-bar"><div class="freq-fill" style="width:100%"></div></div></div>
+      <div class="freq-card"><div class="freq-word">usually</div><div class="freq-pct">80% — Biasanya</div><div class="freq-bar"><div class="freq-fill" style="width:80%"></div></div></div>
+      <div class="freq-card"><div class="freq-word">often</div><div class="freq-pct">60% — Sering</div><div class="freq-bar"><div class="freq-fill" style="width:60%"></div></div></div>
+      <div class="freq-card"><div class="freq-word">sometimes</div><div class="freq-pct">40% — Kadang-kadang</div><div class="freq-bar"><div class="freq-fill" style="width:40%"></div></div></div>
+      <div class="freq-card"><div class="freq-word">rarely</div><div class="freq-pct">20% — Jarang</div><div class="freq-bar"><div class="freq-fill" style="width:20%"></div></div></div>
+      <div class="freq-card"><div class="freq-word">never</div><div class="freq-pct">0% — Tidak pernah</div><div class="freq-bar"><div class="freq-fill" style="width:2%"></div></div></div>
+    </div>
+
+    <div class="gformula" style="margin-top:0.5rem">
+      <div class="gformula-lbl">Position Rules</div>
+      <code>Subject + <span>Adverb</span> + Main Verb</code>
+      <span class="eg">✓ "Pak Ruslan always wakes up early."</span>
+      <code>Subject + be + <span>Adverb</span></code>
+      <span class="eg">✓ "Sari is usually on time for school."</span>
+    </div>
+
+    <div class="ibox">
+      <div class="ibox-lbl">⚠️ Common Mistake</div>
+      <p>Jangan letakkan adverb setelah verb utama: <em>✗ "She eats always rice for breakfast."</em><br>Yang benar: <strong>✓ "She always eats rice for breakfast."</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXERCISES ── -->
+<section id="exercises">
+  <div class="container">
+    <div class="eyebrow">05 — Latihan Soal</div>
+    <h2 class="sec-title">Exercises &amp; Practice</h2>
+    <p class="sec-lead">Tiga jenis latihan untuk menguji pemahaman dan melatih kemampuan berbicara.</p>
+    <div class="ex-tabs">
+      <button class="ex-tab active" onclick="switchTab('mc')">A — Multiple Choice</button>
+      <button class="ex-tab" onclick="switchTab('fill')">B — Gap Fill</button>
+      <button class="ex-tab" onclick="switchTab('speak')">C — Speaking Task</button>
+    </div>
+
+    <!-- MC -->
+    <div class="ex-panel active" id="panel-mc">
+      <div class="qcard">
+        <div class="qn">Question 1 of 5</div>
+        <div class="qt">Which sentence correctly uses Simple Present Tense for He/She?</div>
+        <div class="qopts">
+          <div class="qopt" onclick="pick(this,'wrong','q1')"><span class="qltr">A</span> "Sari wake up at five every morning."</div>
+          <div class="qopt" onclick="pick(this,'correct','q1')"><span class="qltr">B</span> "Sari wakes up at five every morning."</div>
+          <div class="qopt" onclick="pick(this,'wrong','q1')"><span class="qltr">C</span> "Sari is wake up at five every morning."</div>
+          <div class="qopt" onclick="pick(this,'wrong','q1')"><span class="qltr">D</span> "Sari waked up at five every morning."</div>
+        </div>
+      </div>
+      <div class="qcard">
+        <div class="qn">Question 2 of 5</div>
+        <div class="qt">Based on Reading Text 1, what does Pak Ruslan do at 14:00 every day?</div>
+        <div class="qopts">
+          <div class="qopt" onclick="pick(this,'wrong','q2')"><span class="qltr">A</span> He sails out to sea with other fishermen.</div>
+          <div class="qopt" onclick="pick(this,'wrong','q2')"><span class="qltr">B</span> He sells fish at the local market.</div>
+          <div class="qopt" onclick="pick(this,'correct','q2')"><span class="qltr">C</span> He repairs his fishing nets and teaches his son.</div>
+          <div class="qopt" onclick="pick(this,'wrong','q2')"><span class="qltr">D</span> He listens to kalinda'da' poetry with the elders.</div>
+        </div>
+      </div>
+      <div class="qcard">
+        <div class="qn">Question 3 of 5</div>
+        <div class="qt">Where should the adverb of frequency go in this sentence? <br><em>"Sari ___ arrives before the school bell rings."</em></div>
+        <div class="qopts">
+          <div class="qopt" onclick="pick(this,'wrong','q3')"><span class="qltr">A</span> After "arrives"</div>
+          <div class="qopt" onclick="pick(this,'correct','q3')"><span class="qltr">B</span> Before "arrives" (between subject and verb)</div>
+          <div class="qopt" onclick="pick(this,'wrong','q3')"><span class="qltr">C</span> At the very end of the sentence</div>
+          <div class="qopt" onclick="pick(this,'wrong','q3')"><span class="qltr">D</span> After "school bell"</div>
+        </div>
+      </div>
+      <div class="qcard">
+        <div class="qn">Question 4 of 5</div>
+        <div class="qt">What does the word "livelihood" mean in: <em>"Fishing is the main livelihood of Mandar families."</em></div>
+        <div class="qopts">
+          <div class="qopt" onclick="pick(this,'wrong','q4')"><span class="qltr">A</span> A traditional ceremony</div>
+          <div class="qopt" onclick="pick(this,'wrong','q4')"><span class="qltr">B</span> A type of fishing boat</div>
+          <div class="qopt" onclick="pick(this,'correct','q4')"><span class="qltr">C</span> A means of earning money to live</div>
+          <div class="qopt" onclick="pick(this,'wrong','q4')"><span class="qltr">D</span> A daily routine activity</div>
+        </div>
+      </div>
+      <div class="qcard">
+        <div class="qn">Question 5 of 5</div>
+        <div class="qt">Which adverb of frequency shows the HIGHEST frequency?</div>
+        <div class="qopts">
+          <div class="qopt" onclick="pick(this,'wrong','q5')"><span class="qltr">A</span> sometimes</div>
+          <div class="qopt" onclick="pick(this,'wrong','q5')"><span class="qltr">B</span> often</div>
+          <div class="qopt" onclick="pick(this,'wrong','q5')"><span class="qltr">C</span> usually</div>
+          <div class="qopt" onclick="pick(this,'correct','q5')"><span class="qltr">D</span> always</div>
+        </div>
+      </div>
+      <button class="check-btn" onclick="checkMC()">Lihat Skor →</button>
+      <div class="score-box" id="mc-score">
+        <div><span class="score-big" id="mc-num">0/5</span><span class="score-lbl">Skor kamu</span></div>
+        <div class="score-msg" id="mc-msg"></div>
+      </div>
+    </div>
+
+    <!-- FILL -->
+    <div class="ex-panel" id="panel-fill">
+      <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1rem">Lengkapi teks berikut dengan kata yang tepat dari word bank.</p>
+      <div class="wordbank">
+        <span class="wtag">always</span><span class="wtag">prepares</span><span class="wtag">gathers</span>
+        <span class="wtag">usually</span><span class="wtag">wakes</span><span class="wtag">performs</span>
+        <span class="wtag">tradition</span><span class="wtag">livelihood</span>
+      </div>
+      <div class="qcard">
+        <div class="qn">Exercise B — Fill in the Blanks</div>
+        <div class="qt" style="line-height:2.5">
+          Every morning, Sari <input class="blank-in" data-ans="wakes" placeholder="________"> up at 5 AM. She <input class="blank-in" data-ans="always" placeholder="________"> prays Subuh before doing anything else. After praying, she <input class="blank-in" data-ans="prepares" placeholder="________"> her school bag and eats breakfast. Pak Ruslan also <input class="blank-in" data-ans="performs" placeholder="________"> his morning prayer before going to sea. Fishing is his family's main <input class="blank-in" data-ans="livelihood" placeholder="________">. In the evening, the family <input class="blank-in" data-ans="gathers" placeholder="________"> on the porch to share stories. Sari <input class="blank-in" data-ans="usually" placeholder="________"> finishes her homework before 9 PM. Telling stories before bedtime is a beautiful family <input class="blank-in" data-ans="tradition" placeholder="________">.
+        </div>
+      </div>
+      <button class="check-btn" onclick="checkFill()">Cek Jawaban →</button>
+      <div class="score-box" id="fill-score">
+        <div><span class="score-big" id="fill-num">0/8</span><span class="score-lbl">Jawaban benar</span></div>
+        <div class="score-msg" id="fill-msg"></div>
+      </div>
+    </div>
+
+    <!-- SPEAKING -->
+    <div class="ex-panel" id="panel-speak">
+      <div class="speak-box">
+        <h3>🎙️ Speaking Task — "My Daily Routine"</h3>
+        <p>Presentasikan rutinitas harianmu atau rutinitas seseorang yang kamu kenal dalam bahasa Inggris. Gunakan Simple Present Tense dan minimal 4 adverbs of frequency.</p>
+        <ol class="speak-steps">
+          <li class="sstep"><span class="sstep-n">1</span>Pilih satu topik dari pilihan di bawah</li>
+          <li class="sstep"><span class="sstep-n">2</span>Buat 7–10 kalimat tentang rutinitas tersebut</li>
+          <li class="sstep"><span class="sstep-n">3</span>Gunakan minimal 5 kosakata dari modul ini</li>
+          <li class="sstep"><span class="sstep-n">4</span>Gunakan Simple Present Tense yang benar</li>
+          <li class="sstep"><span class="sstep-n">5</span>Presentasikan selama 2–3 menit di depan kelas</li>
+        </ol>
+        <div class="topics-grid">
+          <div class="topic-c"><div class="topic-t">Topic A — My Own Daily Routine</div><div class="topic-d">Ceritakan jadwal harianmu dari bangun tidur hingga tidur malam</div></div>
+          <div class="topic-c"><div class="topic-t">Topic B — A Fisherman's Day</div><div class="topic-d">Deskripsikan rutinitas nelayan Mandar seperti Pak Ruslan</div></div>
+          <div class="topic-c"><div class="topic-t">Topic C — My Parent's Routine</div><div class="topic-d">Ceritakan kegiatan sehari-hari orang tua atau anggota keluargamu</div></div>
+          <div class="topic-c"><div class="topic-t">Topic D — A Dream Routine</div><div class="topic-d">Gambaran rutinitas ideal yang ingin kamu jalani di masa depan</div></div>
+        </div>
+        <div class="rubric-row">
+          <div class="rub-c"><div class="rub-s">25</div><div class="rub-l">Content &amp; Ideas</div></div>
+          <div class="rub-c"><div class="rub-s">25</div><div class="rub-l">Vocabulary</div></div>
+          <div class="rub-c"><div class="rub-s">25</div><div class="rub-l">Grammar Accuracy</div></div>
+          <div class="rub-c"><div class="rub-s">25</div><div class="rub-l">Fluency &amp; Delivery</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SUMMARY ── -->
+<section id="summary">
+  <div class="container">
+    <div class="eyebrow">06 — Rangkuman</div>
+    <h2 class="sec-title">What We Have Learned</h2>
+    <p class="sec-lead">Ringkasan poin-poin kunci dari seluruh materi e-module ini.</p>
+    <div class="sum-grid">
+      <div class="sum-card">
+        <h4>📋 Daily Activities</h4>
+        <ul>
+          <li>Rutinitas dibagi 4 waktu: morning, afternoon, evening, night</li>
+          <li>Dipengaruhi profesi, budaya, dan nilai lokal</li>
+          <li>Kehidupan nelayan Mandar berpusat pada laut</li>
+          <li>Siswa modern memadukan tradisi dan teknologi</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>📐 Simple Present Tense</h4>
+        <ul>
+          <li>I/You/We/They + verb (base form)</li>
+          <li>He/She/It + verb + s/es/ies</li>
+          <li>Digunakan untuk rutinitas &amp; fakta umum</li>
+          <li>Negative: do not / does not + base verb</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>🔁 Adverbs of Frequency</h4>
+        <ul>
+          <li>always → usually → often → sometimes → rarely → never</li>
+          <li>Posisi: sebelum verb utama</li>
+          <li>Setelah "be": She is always punctual</li>
+          <li>Bisa di awal kalimat: Sometimes she is late</li>
+        </ul>
+      </div>
+      <div class="sum-card">
+        <h4>📖 Key Vocabulary</h4>
+        <ul>
+          <li>routine, wake up, prepare, perform</li>
+          <li>livelihood, gather, commute, concentrate</li>
+          <li>productive, regularly, blend, tradition</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REFERENCES ── -->
+<section id="references">
+  <div class="container">
+    <div class="eyebrow">Daftar Pustaka</div>
+    <h2 class="sec-title">References</h2>
+    <ul class="ref-list">
+      <li class="ref-item">Celce-Murcia, M., &amp; Larsen-Freeman, D. (2016). <em>The grammar book: Form, meaning, and use for English language teachers</em> (3rd ed.). National Geographic Learning.</li>
+      <li class="ref-item">Harmer, J. (2015). <em>The practice of English language teaching</em> (5th ed.). Pearson Education.</li>
+      <li class="ref-item">Kemendikbud. (2022). <em>Kurikulum Merdeka: Capaian pembelajaran mata pelajaran bahasa Inggris SMA/MA.</em> Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi.</li>
+      <li class="ref-item">Mandar, S. (2020). <em>Budaya dan tradisi masyarakat Mandar Sulawesi Barat.</em> Dinas Kebudayaan Provinsi Sulawesi Barat.</li>
+      <li class="ref-item">Nunan, D. (2015). <em>Teaching English to speakers of other languages: An introduction.</em> Routledge.</li>
+      <li class="ref-item">Richards, J. C. (2017). <em>Curriculum development in language teaching</em> (2nd ed.). Cambridge University Press.</li>
+      <li class="ref-item">Thornbury, S. (2019). <em>How to teach vocabulary.</em> Pearson Education.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p><strong>A Day in West Sulawesi</strong> — E-Module Bahasa Inggris · Daily Activities &amp; Routines</p>
+  <p style="margin-top:0.4rem">SMA Grade 10–12 · Curriculum &amp; Material Development · Teaching Media</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModal()">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-word" id="modal-word"></div>
+    <div class="modal-def" id="modal-def"></div>
+  </div>
+</div>
+
+<script>
+function showModal(w,d){ document.getElementById('modal-word').textContent=w; document.getElementById('modal-def').textContent=d; document.getElementById('modal').classList.add('open'); }
+function closeModal(){ document.getElementById('modal').classList.remove('open'); }
+
+function switchTab(id){
+  document.querySelectorAll('.ex-tab').forEach((t,i)=>{ t.classList.toggle('active',['mc','fill','speak'][i]===id); });
+  document.querySelectorAll('.ex-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+}
+
+const ans={q1:null,q2:null,q3:null,q4:null,q5:null};
+function pick(el,type,q){
+  el.closest('.qcard').querySelectorAll('.qopt').forEach(o=>o.classList.remove('correct','wrong'));
+  el.classList.add(type); ans[q]=type;
+}
+function checkMC(){
+  const c=Object.values(ans).filter(v=>v==='correct').length;
+  document.getElementById('mc-score').classList.add('show');
+  document.getElementById('mc-num').textContent=c+'/5';
+  const msgs=['Tetap semangat! Baca kembali materinya.','Lumayan! Ada beberapa yang perlu dipelajari lagi.','Cukup baik! Sedikit lagi sempurna.','Bagus sekali! Kamu memahami materi ini dengan baik.','Sempurna! Luar biasa!'];
+  document.getElementById('mc-msg').textContent=msgs[c];
+}
+function checkFill(){
+  const inputs=document.querySelectorAll('#panel-fill .blank-in');
+  let c=0;
+  inputs.forEach(i=>{ i.classList.remove('correct','wrong'); const ok=i.value.trim().toLowerCase()===i.dataset.ans; if(ok){i.classList.add('correct');c++;}else if(i.value.trim())i.classList.add('wrong'); });
+  document.getElementById('fill-score').classList.add('show');
+  document.getElementById('fill-num').textContent=c+'/'+inputs.length;
+  const pct=c/inputs.length;
+  document.getElementById('fill-msg').textContent=pct===1?'Sempurna! Semua benar!':pct>=0.75?'Hampir sempurna! Periksa yang salah ya.':pct>=0.5?'Cukup baik! Coba lagi untuk yang belum benar.':'Baca ulang bagian vocabulary dan coba lagi!';
+}
+
+const secs=document.querySelectorAll('section[id]');
+const nls=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{ let cur=''; secs.forEach(s=>{ if(window.scrollY>=s.offsetTop-90)cur=s.id; }); nls.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur)); });
+</script>
+</body>
+</html>
